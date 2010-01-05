@@ -5,12 +5,12 @@ var uls = [];
 function init() {
   var timer = null;
   var self = this;
-  
+
   $("#display").hide();
   $("input.watermark").each( function() {
     $(this).watermark( $(this).attr( "title" ) );
   } );
-   
+
   $('form.setup').validate({
     rules: {
       attendees: {
@@ -25,19 +25,19 @@ function init() {
       },
       start_time: "required"
     },
-    
+
     messages: {
       attendees:   "Must be a number greater than zero.",
       hourly_rate: "Must be a number greater than zero."
     }
   });
-  
+
   $('form.setup').submit( function( event ) {
     event.preventDefault();
-    
+
     if( $(this).valid() ) {
       $(".error").hide();
-  
+
       timer = begin( this );
       if( timer ) {
         $(this).parent().hide();
@@ -48,24 +48,26 @@ function init() {
     }
     return false;
   } );
-  
+
   $('form.stop').submit( function( event ) {
-    event.preventDefault();
+    $.post("/",{attendees_count: $("#attendees").val(), hourly_rate: $("#hourly_rate").val(), duration: (new Date()- start_time)/1000});
+
     clearInterval( timer );
+
     return false;
   });
-  
+
   var now = new Date();
   var minutes = now.getMinutes();
   if( minutes < 10 ) minutes = "0" + minutes;
-  
+
   $("#start_time").eq(0).val( now.getHours() + ":" + minutes );
-  
+
   $("#start_time").clockpick({
     military: true,
     layout  : "horizontal"
   });
-  
+
 }
 
 function begin( form ) {
@@ -73,7 +75,9 @@ function begin( form ) {
     hourly_rate: $(form).find("input[name=hourly_rate]").val(),
     attendees:   $(form).find("input[name=attendees]").val(),
     units:       $(form).find("select").val()
-  }
+  };
+
+
   var display = $(".cost_display");
 
   var hourly_burn  = Number( data.hourly_rate ) * Number( data.attendees );
@@ -81,7 +85,7 @@ function begin( form ) {
   var selected_time_segments = $("#start_time").eq(0).val().split(':');
   var hours   = Number( selected_time_segments[0] );
   var minutes = Number( selected_time_segments[1] );
-  
+
   start_time = new Date();
   start_time.setHours( hours );
   start_time.setMinutes( minutes );
@@ -96,10 +100,10 @@ function begin( form ) {
 
 function valid( data ) {
   var valid   = false;
-  
-  for( key in data ) {    
+
+  for( key in data ) {
     var error = $("dd:has(:input[name=" + key + "])").find( ".error" );
-    
+
     if( isNaN( data[key] ) ) {
       error.text( "Must be a number" ).show();
       valid = false;
@@ -109,7 +113,7 @@ function valid( data ) {
       valid = true;
     }
   }
-  
+
   return valid;
 };
 
@@ -118,9 +122,9 @@ function update( element, rate_per_hour ) {
   var difference      = current_time - start_time;
   var seconds_elapsed = difference.valueOf() / 1000;
   var rate_per_second = rate_per_hour / 60 / 60;
-  
+
   var current_total   = seconds_elapsed * rate_per_second;
-  
+
   $(".odometer").odometer( "value", current_total );
 }
 
