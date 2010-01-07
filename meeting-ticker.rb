@@ -23,6 +23,10 @@ get '/' do
   erb :index
 end
 
+post '/new' do
+  erb :new
+end
+
 post '/' do
   puts params.inspect
   m=Meeting.new
