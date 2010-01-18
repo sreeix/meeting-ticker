@@ -1,4 +1,8 @@
-Tracks the amount of money spent on meetings, based on the time spent, number of attendees and Billing rate. It also tracks dollars spent over a period of a project. The idea is to start the app on a laptop and leave it in a meeting so that the dollars keep ticking and make it visible to people.
+This is based on Toby Tripp's Initial application. Which exists here.
+
+http://github.com/tobytripp/meeting-ticker
+
+It tracks the amount of money spent on meetings, based on the time spent, number of attendees and Billing rate. It also tracks dollars spent over a period of a project. The idea is to start the app on a laptop and leave it in a meeting so that the dollars keep ticking and make it visible to people.
 
 Installation
 Needs sinatra and datamapper
