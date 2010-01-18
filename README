@@ -4,33 +4,11 @@ http://github.com/tobytripp/meeting-ticker
 
 It tracks the amount of money spent on meetings, based on the time spent, number of attendees and Billing rate. It also tracks dollars spent over a period of a project. The idea is to start the app on a laptop and leave it in a meeting so that the dollars keep ticking and make it visible to people.
 
-Installation
-Needs sinatra and datamapper
+It uses Sqlite3, and it is simple to insall the appl
 
-sudo gem install sinatra dm-core data_objects
+sudo ruby setup.rb
 
-Depending on the database you need to install 
-
-Sqlite db
-sudo gem install do_sqlite3
-
-Mysql
-sudo gem install do_mysql
-
-Postgres
-
-sudo gem install do_postgres
-
-
-
-git clone git://github.com/sreeix/meeting-ticker.git
-
-cd meeting-ticker
-
-edit meeting.rb to set the database url correctly. Create the mysql/sqlite database.
-
-ruby setup.rb
-
+To start the application(Sinatra app)
 
 ruby meeting-ticker.rb
 
@@ -38,4 +16,7 @@ That's it. Navigate to http://localhost:4567
 
 
 That;s it. And stop the bleeding.
+
+
+If you really want to use my sql then you will have to change the url's in the meeting.rb
 

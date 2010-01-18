@@ -1,4 +1,5 @@
 gem "sinatra"
+gem "mongrel"
 gem "dm-core"
 gem "data_objects"
 gem "sqlite3-ruby"

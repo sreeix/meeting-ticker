@@ -1,7 +1,7 @@
 puts "Installing the Gem bundler -> http://github.com/wycats/bundler"
 `gem install bundler`
 puts "installing the required gems"
-`gem bundle`
+`gem bundle --update`
 puts "Installing the database."
 require 'rubygems'
 require 'dm-core'
