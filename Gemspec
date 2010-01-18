@@ -1,3 +1,0 @@
-gem :sinatra
-gem :dm_core
-gem :do_sqlite3

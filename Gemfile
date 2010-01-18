@@ -1,9 +1,9 @@
-gem :sinatra
-gem :dm_core
-gem :do_sqlite3
+gem "sinatra"
+gem "dm-core"
+gem "do_sqlite3"
 #if you use mysql
-#gem :do_mysql
+#gem "do_mysql"
 
 bin_path "gbin"
-bundle_path "gvendor"
+bundle_path "vendor"
 
