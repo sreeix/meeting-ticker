@@ -1,3 +1,8 @@
+puts "Installing the Gem bundler -> http://github.com/wycats/bundler"
+`gem install bundler`
+puts "installing the required gems"
+`gem bundle`
+puts "Installing the database."
 require 'rubygems'
 require 'dm-core'
 require File.join(File.dirname(__FILE__),'meeting')

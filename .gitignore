@@ -1,3 +1,5 @@
 gbin/*
 vendor/gems/*
+vendor/ruby/*
 !vendor/gems/cache/
+!vendor/ruby/1.8/cache/
