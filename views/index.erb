@@ -1,19 +1,23 @@
 <div id="form">
   <div class='summary'>
     <br/>
-    <div><h1>Dollars bled till date</h1>
-    <div class='odometer' style='font-size: 133.2px;'>
-    <span class="prefix">$</span>
-    <span><%=@dollars%></span>
-    </div>
-    </div>
 
+    <div><h1>Dollars bled till date</h1>
+      <div class='odometer' style='font-size: 133.2px;'>
+        <span class="prefix">$</span>
+        <span> <%=@dollars %> </span>
+      </div>
+
+      <div class='odometer' style='font-size: 100.2px;'>
+        <span class="prefix">$</span>
+        <span> <%=@dollars_last_week %> </span>
+      </div>
+
+    </div>
   </div>
-<div class ='new_meeting'>
-   <form method="post" action="/new">
-     <button type="submit">Bleed More...</button>
-   </form>
-</div>
- 
-</div>
+  <div class ='new_meeting'>
+     <form method="post" action="/new">
+       <button type="submit">Bleed More...</button>
+     </form>
+  </div>
 </div>

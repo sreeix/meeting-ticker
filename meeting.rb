@@ -1,9 +1,9 @@
 require 'rubygems'
 require 'dm-core'
 
-DataMapper.setup(:default, 'mysql://root:p@ssw0rd@localhost/meeting_tracker')
+#DataMapper.setup(:default, 'mysql://root:@localhost/meeting_tracker')
 
-#DataMapper::setup(:default, "sqlite://#{Dir.pwd}/meetings.db")
+DataMapper::setup(:default, "sqlite://#{Dir.pwd}/meetings.db")
 
 
 class Meeting
