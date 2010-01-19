@@ -95,3 +95,6 @@ label.error {
 form.stop input {
 	font-size: 2em;
 }
+.left { float: left;}
+
+.right { float: right;}

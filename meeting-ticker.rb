@@ -11,6 +11,12 @@ end
 get '/' do
   @meetings=Meeting.all
   @dollars=@meetings.inject(0){|dollars,m| dollars+=m.amount}.to_f.round_to(2)
+  this_month_begin = DateTime.new(DateTime.now.year, DateTime.now.month, 1)
+  this_month_end = (this_month_begin >> 1) -1
+  last_month_end= this_month_begin -1
+  last_month_begin = DateTime.new(last_month_end.year, last_month_end.month, 1) 
+  @dollars_last_month = Meeting.all(:created_at.gt =>last_month_begin, :created_at.lt => last_month_end).inject(0){|dollars,m| dollars+=m.amount}.to_f.round_to(2)
+  @dollars_this_month = Meeting.all(:created_at.gt =>this_month_begin, :created_at.lt => this_month_end).inject(0){|dollars,m| dollars+=m.amount}.to_f.round_to(2)
   erb :index
 end
 
